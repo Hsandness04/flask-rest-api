@@ -1,0 +1,9 @@
+# Add things that will be ignored when adding to git.
+
+
+.DS_Store
+
+# Cache versions of python code.
+__pycache__ 
+# Ignore all compiled .pyc files.
+.pyc 
