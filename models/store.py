@@ -12,11 +12,13 @@ class StoreModel(db.Model):
 
     items = db.relationship('ItemModel', lazy='dynamic') # One to Many relationship with the ItemModel
 
-    def __init__(self, name):
+    def __init__(self, name, _id):
         self.name = name
+        self.store_id = _id # Could cause an error.
 
     def json(self):
-        return {'name': self.name, 'items': [item.json() for item in self.items.all()]}
+        # Added id, could cause an error.
+        return {'name': self.name, 'store_id': self.store_id, 'items': [item.json() for item in self.items.all()]}
 
     @classmethod
     def find_by_name(cls, name):
